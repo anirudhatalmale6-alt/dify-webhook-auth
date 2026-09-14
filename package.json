@@ -13,7 +13,7 @@
     "./raw-body": "./src/rawBody.ts"
   },
   "scripts": {
-    "test": "node --test --experimental-strip-types test/verify.test.ts",
+    "test": "node --test --experimental-strip-types test/verify.test.ts test/difyPreset.test.ts",
     "test:load": "node --experimental-strip-types test/load.ts 2000 128",
     "test:load:heavy": "node --experimental-strip-types test/load.ts 20000 256",
     "test:timing": "node --experimental-strip-types test/timing.ts 20000 8",
