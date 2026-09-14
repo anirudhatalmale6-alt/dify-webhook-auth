@@ -1,0 +1,27 @@
+{
+  "name": "dify-webhook-auth",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Timing-safe HMAC-SHA256 verification for inbound Dify webhooks, with a concurrency harness.",
+  "type": "module",
+  "engines": {
+    "node": ">=22.6.0"
+  },
+  "exports": {
+    ".": "./src/verify.ts",
+    "./server": "./src/server.ts",
+    "./raw-body": "./src/rawBody.ts"
+  },
+  "scripts": {
+    "test": "node --test --experimental-strip-types test/verify.test.ts",
+    "test:load": "node --experimental-strip-types test/load.ts 2000 128",
+    "test:load:heavy": "node --experimental-strip-types test/load.ts 20000 256",
+    "test:timing": "node --experimental-strip-types test/timing.ts 20000 8",
+    "verify:all": "npm run test && npm run test:load && npm run test:timing",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "typescript": "^5.6.0",
+    "@types/node": "^22.7.0"
+  }
+}
